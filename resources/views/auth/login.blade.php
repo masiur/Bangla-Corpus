@@ -8,9 +8,9 @@
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading" style="background-color: #3ecc6f;">
-            <h3 class="text-center"><strong>InfancyIT Velonic(5.1)</strong> </h3>
+            <h3 class="text-center"><strong>Bangla Corpus<br>Admin Panel</strong> </h3>
         </div>
-        
+        <br>
              @include('includes.alert')
 
             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
@@ -56,25 +56,25 @@
 
 
 
-        <center>
+        <!-- <center>
         <p>Or,<br> You can sign in via social network</p>
 
         <div class="login-social-link">
-            <a href="{{ route('login/fb') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+            <a href="{{ route('login/fb') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a> -->
        <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->
-            <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
+           <!--  <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
         </div>
-       </center>
+       </center> -->
 
 
 
-        <div class="registration">
+        <!-- <div class="registration">
             <br>
             Don't have an account yet?
             <a class="" href="{{ route('register') }}">
                 Create an account
             </a>
-        </div>
+        </div> -->
 
 
         {!! Form::close() !!}

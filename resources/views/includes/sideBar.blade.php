@@ -16,15 +16,18 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::isActiveRoute('dashboard') !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Dashboard</span></a>                 
+                     <li class="{!! Menu::isActiveRoute('dashboard') !!}"><a href="{{ route('dashboard') }}"><i class="ion-flask"></i> <span class="nav-label">Dashboard</span></a>                 
+                    </li>
+                    <!-- ##Developer ====>>>> Masiur Rahman Siddiki || mrsiddiki@gmail.com -->
+
+                    <li class="{!! Menu::isActiveRoute('category.index') !!}"><a href="{{ route('category.index') }}"><i class="ion-compose"></i> <span class="nav-label">Category</span></a>                       
+                    </li>
+
+                     <li class="{!! Menu::isActiveRoute('demo.index') !!}"><a href="{{ route('demo.index') }}"><i class="ion-compose"></i> <span class="nav-label">Corpus</span></a>                       
                     </li>
 
 
-                    <li class="{!! Menu::isActiveRoute('demo.index') !!}"><a href="{{ route('demo.index') }}"><i class="ion-compose"></i> <span class="nav-label">Demo (modal) CRUD</span></a>                       
-                    </li>
-
-
-                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
+                    <!-- <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
                         <ul class="list-unstyled">
                             <li><a href="#">Basic Tables</a></li>
                             <li><a href="#">Data Table</a></li>
@@ -57,7 +60,7 @@
                             <li><a href="gmap.html"> Google Map</a></li>
                             <li><a href="vector-map.html"> Vector Map</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
                 </ul>
             </nav>

@@ -1,7 +1,8 @@
 <!-- Footer Start -->
+<!-- ##Developer ====>>>> Masiur Rahman Siddiki || mrsiddiki@gmail.com -->
 <footer class="footer">
 	<center>
-	Copyright&copy; 2016 InfancyIT, Bangladesh. All rights reserved.</center>
+	Copyright&copy; 2016 NLP Lab, Dept. of CSE, SUST. All rights reserved.</center>
 </footer>
 <!-- Footer Ends -->
 

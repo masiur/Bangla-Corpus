@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-	return Redirect::route('dashboard');
-});
+// Route::get('/', function () {
+// 	return Redirect::route('dashboard');
+// });
+Route::get('/', ['as'=>'index','uses' => 'FrontendController@index']);
+Route::get('home', ['as'=>'home','uses' => 'FrontendController@home']);
 
 Route::group(['middleware' => 'guest'], function(){
 
@@ -58,6 +60,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::get('demo/{id}/show',['as' => 'demo.show', 'uses' => 'DemoController@show']);
 	Route::put('demo/{id}',['as' => 'demo.update', 'uses' => 'DemoController@update']);
 	Route::get('demo/delete/{id}',['as' => 'demo.delete', 'uses' => 'DemoController@destroy']);
+
+	// Category CRUD
+	Route::get('category',['as' => 'category.index', 'uses' => 'CategoryController@index']);
+	Route::get('category/create',['as' => 'category.create', 'uses' => 'CategoryController@create']);
+	Route::post('category',['as' => 'category.store', 'uses' => 'CategoryController@store']);
+	Route::get('category/{id}/edit',['as' => 'category.edit', 'uses' => 'CategoryController@edit']);
+	Route::get('category/{id}/show',['as' => 'category.show', 'uses' => 'CategoryController@show']);
+	Route::put('category/{id}',['as' => 'category.update', 'uses' => 'CategoryController@update']);
+	Route::delete('category/{id}',['as' => 'category.delete', 'uses' => 'CategoryController@destroy']);
+
 });
 
 /* // Language CRUD
