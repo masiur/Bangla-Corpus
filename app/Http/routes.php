@@ -14,6 +14,9 @@
 // Route::get('/', function () {
 // 	return Redirect::route('dashboard');
 // });
+Route::get('/admin', function () {
+	return Redirect::route('dashboard');
+});
 Route::get('/', ['as'=>'index','uses' => 'FrontendController@index']);
 Route::get('home', ['as'=>'home','uses' => 'FrontendController@home']);
 
