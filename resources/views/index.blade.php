@@ -6,7 +6,7 @@
 <style type="text/css">
 /*-- ##Developer ====>>>> Masiur Rahman Siddiki || mrsiddiki@gmail.com */
     .footer {
-        color: #58666e;
+        color: ##797979;
         position: absolute;
         left: 0;
         right: 0px;
@@ -15,22 +15,22 @@
 </style>
 
 
-<body>
+<body class="panel">
 
 
 
 
     <div class="wraper container-fluid">
-
+        <h2>NLP Lab</h2>
         @include('includes.alert')
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="panel panel-default">
+                <!-- <div class="panel panel-default"> -->
 
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                    <h4>Bangla Corpus Collection</h4>
+                                    <h4>Contribute making Bangla Corpus</h4>
                             </div>
                             <!-- <div class="col-md-6">                            
                                 <a class="pull-right" href="{!! route('category.index')!!}"><button class="btn btn-success">Category List</button></a>
@@ -52,20 +52,20 @@
                             
                                 <div class=" form"> 
 
-                                    {!! Form::open(array('route' => 'category.store' , 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form')) !!}
+                                    {!! Form::open(array('route' => 'corpus.store' , 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form')) !!}
 
 
                                     <div class="form-group">
-                                        {!! Form::label('name', "Category*", array('class' => 'control-label col-lg-2')) !!}
+                                        {!! Form::label('category_id', "Category*", array('class' => 'control-label col-lg-2')) !!}
                                         <div class="col-lg-10">
-                                            {!! Form::select('category_id', $categories, null, array('class' => 'form-control',  'required' => 'required', 'aria-required' =>'true', 'autofocus')) !!}
+                                            {!! Form::select('category_id', $categories, null, array('class' => 'form-control',  'required' => 'required',  'autofocus')) !!}
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('name', "Text*", array('class' => 'control-label col-lg-2')) !!}
+                                        {!! Form::label('corpusdata', "Text*", array('class' => 'control-label col-lg-2')) !!}
                                         <div class="col-lg-10">
-                                            {!! Form::textarea('data', null, array('class' => 'form-control', 'placeholder' => 'Place here a paragraph of the selected category', 'required' => 'required', 'aria-required' =>'true', 'rows' => 12)) !!}
+                                            {!! Form::textarea('corpusdata', null, array('class' => 'form-control', 'placeholder' => 'Place here a paragraph of the selected category', 'required' => 'required', 'aria-required' =>'true', 'rows' => 12)) !!}
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
                         </div>
                              
                     </div>
-                </div>
+                <!-- </div> -->
 
             </div>
 
@@ -89,7 +89,7 @@
 
       
 
-
+<br><br><br>
 <!-- Footer Start -->
 <!-- ##Developer ====>>>> Masiur Rahman Siddiki || mrsiddiki@gmail.com -->
 <footer class="footer">

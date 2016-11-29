@@ -23,7 +23,7 @@
                     <li class="{!! Menu::isActiveRoute('category.index') !!}"><a href="{{ route('category.index') }}"><i class="ion-compose"></i> <span class="nav-label">Category</span></a>                       
                     </li>
 
-                     <li class="{!! Menu::isActiveRoute('demo.index') !!}"><a href="{{ route('demo.index') }}"><i class="ion-compose"></i> <span class="nav-label">Corpus</span></a>                       
+                     <li class="{!! Menu::isActiveRoute('corpus.index') !!}"><a href="{{ route('corpus.index') }}"><i class="ion-compose"></i> <span class="nav-label">Corpus</span></a>                       
                     </li>
 
 

@@ -82,3 +82,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('language/{id}',['as' => 'language.delete', 'uses' => 'LanguageController@destroy']);
 
 */
+Route::get('corpus',['as' => 'corpus.index', 'uses' => 'CorpusController@index']);
+	Route::get('corpus/create',['as' => 'corpus.create', 'uses' => 'CorpusController@create']);
+	Route::post('corpus',['as' => 'corpus.store', 'uses' => 'CorpusController@store']);
+	Route::get('corpus/{id}/edit',['as' => 'corpus.edit', 'uses' => 'CorpusController@edit']);
+	Route::get('corpus/{id}/show',['as' => 'corpus.show', 'uses' => 'CorpusController@show']);
+	Route::put('corpus/{id}',['as' => 'corpus.update', 'uses' => 'CorpusController@update']);
+	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
