@@ -15,7 +15,7 @@ class CreateCorpusTable extends Migration
         Schema::create('corpus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category')->nullable();
-            $table->string('text')->nullable();
+            $table->longText('text')->nullable();
             $table->timestamps();
         });
     }
