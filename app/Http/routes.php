@@ -74,19 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('category/{id}',['as' => 'category.delete', 'uses' => 'CategoryController@destroy']);
 
 	Route::get('corpus',['as' => 'corpus.index', 'uses' => 'CorpusController@index']);
+	Route::get('corpus/{id}/analysis',['as' => 'corpus.analysis', 'uses' => 'CorpusController@analysis']);
 
 });
-
-/* // Language CRUD
-	Route::get('language',['as' => 'language.index', 'uses' => 'LanguageController@index']);
-	Route::get('language/create',['as' => 'language.create', 'uses' => 'LanguageController@create']);
-	Route::post('language',['as' => 'language.store', 'uses' => 'LanguageController@store']);
-	Route::get('language/{id}/edit',['as' => 'language.edit', 'uses' => 'LanguageController@edit']);
-	Route::get('language/{id}/show',['as' => 'language.show', 'uses' => 'LanguageController@show']);
-	Route::put('language/{id}',['as' => 'language.update', 'uses' => 'LanguageController@update']);
-	Route::delete('language/{id}',['as' => 'language.delete', 'uses' => 'LanguageController@destroy']);
-
-*/
 
 	Route::get('corpus/create',['as' => 'corpus.create', 'uses' => 'CorpusController@create']);
 	Route::post('corpus',['as' => 'corpus.store', 'uses' => 'CorpusController@store']);

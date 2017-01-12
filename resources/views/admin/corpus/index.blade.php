@@ -29,8 +29,8 @@
                                             <th>ID</th>
                                             <th>Category</th>
                                             <th>Name</th>
-                                            <!-- <th>#</th>
-                                            <th>#</th> -->
+                                            <th>#</th>
+                                            <!-- <th>#</th> -->
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -40,7 +40,7 @@
                                                 <td><?php echo $counter++; ?></td>
                                                 <td>{!! $corpus->category !!}</td>
                                                 <td>{!! $corpus->text !!}</td>
-                                                <!-- <td><a class="btn btn-info btn-xs btn-archive Showbtn" href="{!!route('corpus.show',$corpus->id)!!}"  style="margin-right: 3px;">Show Details</a></td> -->
+                                                <td><a class="btn btn-info btn-xs btn-archive Showbtn" href="{!!route('corpus.analysis',$corpus->id)!!}"  style="margin-right: 3px;">Details</a></td>
                                                 <!-- <td><a class="btn btn-success btn-xs btn-archive Editbtn" href="{!!route('corpus.edit',$corpus->id)!!}"  style="margin-right: 3px;">Edit</a></td>
                                                 <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $corpus->id!!}">Delete</a></td> -->
                                             </tr>
