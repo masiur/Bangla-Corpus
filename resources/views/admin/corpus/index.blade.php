@@ -25,7 +25,7 @@
                                 @if(count($corpuses))
                                     <table  id="dataTable" class="table table-striped table-bordered">
                                         <thead>
-                                        <tr>
+                                        <tr><th>&</th>
                                             <th>ID</th>
                                             <th>Category</th>
                                             <th>Name</th>
@@ -35,8 +35,10 @@
                                         </thead>
                                         <tbody>
                                         <?php $counter=1 ?>
+                                        <form method="post" action="">
                                         @foreach ($corpuses as $corpus)
-                                            <tr>
+                                            <tr><td>
+                                            <input id="selected" type="checkbox" name="selected[]" value="{{ $corpus->id }}"></td>
                                                 <td><?php echo $counter++; ?></td>
                                                 <td>{!! $corpus->category !!}</td>
                                                 <td>{!! $corpus->text !!}</td>
@@ -46,8 +48,11 @@
                                             </tr>
 
                                         @endforeach
+                                        
                                         </tbody>
                                     </table>
+                                    <button type="submit" class="analysisSubmit btn btn-info">Go</button>
+                                    </form>
                                 @else
                                     No corpus added yet. Be first to add a corpus
                                 @endif
@@ -108,6 +113,15 @@
                 var deleteId = $(this).attr('deleteId');
                 var url = "<?php echo URL::route('corpus.delete', false); ?>";
                 $(".deleteForm").attr("action", url+'/'+deleteId);
+            });
+
+            $(document).on("click", ".analysisSubmit", function(e) {
+                console.log('clicked go');
+                e.preventDefault();
+                var checkedId[] = $("#selected").val();
+                console.log(checkedId);
+                {{--// var url = "<?php echo URL::route('corpus.delete', false); ?>"; --}}
+                // $(".deleteForm").attr("action", url+'/'+deleteId);
             });
 
         });
