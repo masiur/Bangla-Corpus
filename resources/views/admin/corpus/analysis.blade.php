@@ -61,6 +61,13 @@
                                         <h4>Unique Words</h4>
                                         {{ $result['uniqueWords'] }}
                                     </div>
+                                    <div class="row">
+                                        <h4>Occurences</h4>
+                                        @foreach($result['countEachWords'] as $words => $countVal)
+                                            <div class="col-md-3"> {{ $words }} - {{ $countVal }} </div>
+                                        @endforeach
+                                        {{-- $result['countEachWords'] --}}
+                                    </div>
 
                                 </div>
                             </div>

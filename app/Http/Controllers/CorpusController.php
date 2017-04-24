@@ -30,11 +30,36 @@ class CorpusController extends Controller
         // return $id;
         $corpus = Corpus::findOrfail($id);
         $corpusText = $corpus->text;
+        // return $corpusText;
         // cleaning data 
         $totalWords = $this->filterRawString($corpusText); // invoking the function
-        
+        //return count($totalWords);
+        //$totalWordsOccur = array_fill_keys($totalWords,0);
+        //return $totalWordsOccur;        
         $totalWordCount = count($totalWords);
         $uniqueWords = array_unique($totalWords); // store uniqu words to an array 
+        $totalUniWordsCount = array_fill_keys($uniqueWords,0);
+        //return array_keys($totalUniWordsCount);
+        //return count($totalUniWordsCount);
+        //return count($totalWords);
+
+
+        $a = array_count_values($totalWords);
+        $price = array();
+        foreach($a as $key => $row)
+        {
+            $price[$key] = $row;
+        }
+        array_multisort($price, SORT_DESC, $a);
+        // return $price;
+
+        //return arsort($a,SORT_NUMERIC);
+        //return uasort($a,SORT_NUMERIC);
+
+//return $assoc;
+        //$words = "আমি ভাল আছি আমি  A string with certain words occuring more often than other words. string A a with";
+        //return array_count_values(str_word_count($words, 1));
+        
         $uniqueWordCount =  count($uniqueWords);
         $uniqueString = implode(', ', $uniqueWords);
         $firstElement = head($totalWords);
@@ -44,7 +69,8 @@ class CorpusController extends Controller
                 'firstElement' => $firstElement,
                 'lastElement' => $lastElement,
                 'uniqueWords' => $uniqueString,
-                'mainText' => $corpusText
+                'mainText' => $corpusText,
+                'countEachWords' => $price
                 ];
         // return Response::json($result);
         return view('admin.corpus.analysis')

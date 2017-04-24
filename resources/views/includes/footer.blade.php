@@ -1,8 +1,9 @@
 <!-- Footer Start -->
 <!-- ##Developer ====>>>> Masiur Rahman Siddiki || mrsiddiki@gmail.com -->
+<!-- ##Developer ====>>>> Abdullah Al Awal || abdullah@student.sust.edu -->
 <footer class="footer">
 	<center>
-	Copyright&copy; 2016 NLP Lab, Dept. of CSE, SUST. All rights reserved.</center>
+	Copyright&copy; 2016 - {{ Date("Y") }} NLP Lab, Dept. of CSE, SUST. All rights reserved.</center>
 </footer>
 <!-- Footer Ends -->
 
