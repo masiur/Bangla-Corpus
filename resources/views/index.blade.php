@@ -70,6 +70,13 @@
                                     </div>
 
                                     <div class="form-group">
+                                        {!! Form::label('corpusdata', "Email", array('class' => 'control-label col-lg-2')) !!}
+                                        <div class="col-lg-10">
+                                            {!! Form::text('corpusdata', null, array('class' => 'form-control', 'placeholder' => 'Email', 'required' => 'required', 'aria-required' =>'true', 'rows' => 1)) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
                                         {!! Form::submit('Contribute', array('class' => 'btn btn-success')) !!}
                                         </div>
