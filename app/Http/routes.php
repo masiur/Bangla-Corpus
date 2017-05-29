@@ -19,6 +19,7 @@ Route::get('/admin', function () {
 });
 Route::get('/', ['as'=>'index','uses' => 'FrontendController@index']);
 Route::get('home', ['as'=>'home','uses' => 'FrontendController@home']);
+Route::get('about', ['as'=>'about','uses' => 'FrontendController@about']);
 
 Route::group(['middleware' => 'guest'], function(){
 
@@ -86,6 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
 
 
+
 	// Category CRUD
 	Route::get('contribute',['as' => 'contribute.index', 'uses' => 'FrontendController@contributeIndex']);
 	Route::get('contribute/criteria',['as' => 'contribute.create', 'uses' => 'CategoryController@create']);
@@ -95,6 +97,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::put('contribute/{id}',['as' => 'contribute.update', 'uses' => 'CategoryController@update']);
 	Route::delete('contribute/{id}',['as' => 'contribute.delete', 'uses' => 'CategoryController@destroy']);
 
+
+	Route::get('about',['as' => 'about.index', 'uses' => 'FrontendController@about']);
+	Route::get('contact',['as' => 'contact.index', 'uses' => 'FrontendController@contact']);
 /* this is only for developer 
 // strongly recommend not to use on production
 */

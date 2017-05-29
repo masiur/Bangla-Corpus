@@ -23,17 +23,28 @@
           </ul> -->
 
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <li class="{{ Menu::isActiveRoute('index') }}">
               <a href="{{ route('index') }}">Home</a>
             </li>
             <li class="{{ Menu::isActiveRoute('') }}">
               <a href="">About</a>
+=======
+            <li>
+              <a href="{{ route('home') }}">Home</a>
+            </li>
+            <li>
+              <a href="{{ route('about.index') }}">About</a>
+>>>>>>> bd-king
             </li>
             <li class="{{ Menu::isActiveRoute('') }}">
               <a href="">Data</a>
             </li>
             <li class="{{ Menu::isActiveRoute('contribute.index') }}">
               <a href="{{ route('contribute.index') }}">Contribute</a>
+            </li>
+            <li>
+              <a href="{{ route('contact.index') }}">Contact</a>
             </li>
           </ul>
 
