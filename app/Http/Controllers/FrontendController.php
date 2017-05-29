@@ -38,9 +38,9 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function contributeIndex()
     {
-        //
+        return view('frontPages.contribute')->with('title', 'Contribute');
     }
 
     /**

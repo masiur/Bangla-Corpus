@@ -23,17 +23,17 @@
           </ul> -->
 
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="">Home</a>
+            <li class="{{ Menu::isActiveRoute('index') }}">
+              <a href="{{ route('index') }}">Home</a>
             </li>
-            <li>
+            <li class="{{ Menu::isActiveRoute('') }}">
               <a href="">About</a>
             </li>
-            <li>
+            <li class="{{ Menu::isActiveRoute('') }}">
               <a href="">Data</a>
             </li>
-            <li>
-              <a href="">Contribute</a>
+            <li class="{{ Menu::isActiveRoute('contribute.index') }}">
+              <a href="{{ route('contribute.index') }}">Contribute</a>
             </li>
           </ul>
 

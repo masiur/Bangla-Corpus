@@ -86,6 +86,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
 
 
+	// Category CRUD
+	Route::get('contribute',['as' => 'contribute.index', 'uses' => 'FrontendController@contributeIndex']);
+	Route::get('contribute/criteria',['as' => 'contribute.create', 'uses' => 'CategoryController@create']);
+	Route::post('contribute',['as' => 'contribute.store', 'uses' => 'CategoryController@store']);
+	Route::get('contribute/{id}/edit',['as' => 'contribute.edit', 'uses' => 'CategoryController@edit']);
+	Route::get('contribute/{id}/show',['as' => 'contribute.show', 'uses' => 'CategoryController@show']);
+	Route::put('contribute/{id}',['as' => 'contribute.update', 'uses' => 'CategoryController@update']);
+	Route::delete('contribute/{id}',['as' => 'contribute.delete', 'uses' => 'CategoryController@destroy']);
+
 /* this is only for developer 
 // strongly recommend not to use on production
 */
