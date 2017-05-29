@@ -22,14 +22,14 @@ class FrontendController extends Controller
         // $categories = array_merge(['' => 'Please, Select a Category'], $categories);
         // $categories[''] = 'Please, Select a Category';
         // return $categories;     
-        return view('index')->with('title', 'Home')
+        return view('frontPages.index')->with('title', 'Home')
                     ->with('categories', $categories);
     }
 
     public function home()
     {
         $categories = Category::lists('name');
-        return view('index')->with('title', 'Home')
+        return view('frontPages.index')->with('title', 'Home')
                     ->with('categories', $categories);
     }
 

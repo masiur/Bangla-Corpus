@@ -84,3 +84,288 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::get('corpus/{id}/show',['as' => 'corpus.show', 'uses' => 'CorpusController@show']);
 	Route::put('corpus/{id}',['as' => 'corpus.update', 'uses' => 'CorpusController@update']);
 	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
+
+
+/* this is only for developer 
+// strongly recommend not to use on production
+*/
+
+// // data insertion code
+// Route::get('/insert', function () {
+// 	set_time_limit(0);
+// $files = glob('G:\category\education/*.txt');
+// while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+//    $contents = file_get_contents($filename);
+//    // echo  $contents."<br>";
+
+//    App\RawData::create([
+//    			'category' => 'education',
+//    			'text' => $contents,
+//    			'contributor' => 'RatulCorpus'
+//    			]);
+// }
+
+
+
+
+// });
+
+// Route::get('/insert1', function () {
+// 	set_time_limit(0);
+// $files = glob('G:\category\art/*.txt');
+// while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+//    $contents = file_get_contents($filename);
+//    // echo  $contents."<br>";
+
+//    App\RawData::create([
+//    			'category' => 'art',
+//    			'text' => $contents,
+//    			'contributor' => 'RatulCorpus'
+//    			]);
+// }
+
+// 		// $analyzableString = str_replace('।', '', $corpusText); // removing bangla full stop (daRi ) from the string
+//         // $analyzableString = str_replace(',', '', $analyzableString); // removing all commas
+//         // $analyzableString = preg_replace('/(০|১|২|৩|৪|৫|৬|৭|৮|৯)/', '', $analyzableString); // remove bangla numeric value
+//         $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+//         $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+//         $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+        
+//         $totalWords = explode(" ",$analyzableString); // return an array
+//         return $totalWords;
+
+
+
+// });
+
+
+// Route::get('/education', function () {
+
+// 	set_time_limit(0);
+// 	ini_set('memory_limit', '-1');
+// 	$time_start = microtime(true); 
+// 	// mysqli_set_charset($dblink, "utf8"); 
+
+// $mysqli = new mysqli("localhost", "root", "sust","corpus");
+// mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+// if ($mysqli->connect_errno) {
+//     printf("Connect failed: %s\n", $mysqli->connect_error);
+//     exit();
+// }
+
+
+//     $files = glob('G:\category\education/*.txt');
+// 	while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+// 	   $contents = file_get_contents($filename);
+
+// 	    // filter  data 
+// 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+// 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+// 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+// 		// insert
+// 	        $sql = "INSERT INTO education (text, contributor) VALUES ('$contents', 'RatulCorpus')";
+// 		if ($mysqli->query($sql)  === TRUE) {
+
+// 		} else {
+// 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+// 		}
+// 	}
+
+// 	$mysqli->close();
+
+// 	$time_end = microtime(true);
+// 	//dividing with 60 will give the execution time in minutes other wise seconds
+// 	$execution_time = ($time_end - $time_start)/60;
+// 	echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+// });
+
+// Route::get('/opinion', function () {
+
+// 	set_time_limit(0);
+// 	ini_set('memory_limit', '-1');
+// 	$time_start = microtime(true); 
+// 	// mysqli_set_charset($dblink, "utf8"); 
+
+// $mysqli = new mysqli("localhost", "root", "sust","corpus");
+// mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+// if ($mysqli->connect_errno) {
+//     printf("Connect failed: %s\n", $mysqli->connect_error);
+//     exit();
+// }
+
+
+//     $files = glob('G:\category\opinion/*.txt');
+// 	while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+// 	   $contents = file_get_contents($filename);
+
+// 	    // filter  data 
+// 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+// 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+// 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+// 		// insert
+// 	        $sql = "INSERT INTO opinion (text,  contributor) VALUES ('$contents', 'RatulCorpus')";
+// 		if ($mysqli->query($sql)  === TRUE) {
+
+// 		} else {
+// 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+// 		}
+// 	}
+
+// 	$mysqli->close();
+
+// 	$time_end = microtime(true);
+// 	//dividing with 60 will give the execution time in minutes other wise seconds
+// 	$execution_time = ($time_end - $time_start)/60;
+// 	echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+// });
+
+// Route::get('/economics', function () {
+
+// 	set_time_limit(0);
+// 	ini_set('memory_limit', '-1');
+// 	$time_start = microtime(true); 
+// 	// mysqli_set_charset($dblink, "utf8"); 
+
+// $mysqli = new mysqli("localhost", "root", "sust","corpus");
+// mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+// if ($mysqli->connect_errno) {
+//     printf("Connect failed: %s\n", $mysqli->connect_error);
+//     exit();
+// }
+
+
+//     $files = glob('G:\category\economics/*.txt');
+// 	while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+// 	   $contents = file_get_contents($filename);
+
+// 	    // filter  data 
+// 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+// 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+// 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+// 		// insert
+// 	        $sql = "INSERT INTO economics (text,  contributor) VALUES ('$contents', 'RatulCorpus')";
+// 		if ($mysqli->query($sql)  === TRUE) {
+
+// 		} else {
+// 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+// 		}
+// 	}
+
+// 	$mysqli->close();
+
+// 	$time_end = microtime(true);
+// 	//dividing with 60 will give the execution time in minutes other wise seconds
+// 	$execution_time = ($time_end - $time_start)/60;
+// 	echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+// });
+
+
+
+
+// Route::get('/environment', function () {
+
+// 	set_time_limit(0);
+// 	ini_set('memory_limit', '-1');
+// 	$time_start = microtime(true); 
+// 	// mysqli_set_charset($dblink, "utf8"); 
+
+// $mysqli = new mysqli("localhost", "root", "sust","corpus");
+// mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+// if ($mysqli->connect_errno) {
+//     printf("Connect failed: %s\n", $mysqli->connect_error);
+//     exit();
+// }
+
+
+//     $files = glob('G:\category\environment/*.txt');
+// 	while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+// 	   $contents = file_get_contents($filename);
+
+// 	    // filter  data 
+// 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+// 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+// 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+// 		// insert
+// 	        $sql = "INSERT INTO environment (text, contributor) VALUES ('$contents', 'RatulCorpus')";
+// 		if ($mysqli->query($sql)  === TRUE) {
+
+// 		} else {
+// 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+// 		}
+// 	}
+
+// 	$mysqli->close();
+
+	
+// 	// return App\RawData::all();
+// 	$time_end = microtime(true);
+// 	//dividing with 60 will give the execution time in minutes other wise seconds
+// 	$execution_time = ($time_end - $time_start)/60;
+// 	echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+// });
+
+
+// Route::get('/art', function () {
+
+// 	set_time_limit(0);
+// 	ini_set('memory_limit', '-1');
+// 	$time_start = microtime(true); 
+// 	// mysqli_set_charset($dblink, "utf8"); 
+
+// $mysqli = new mysqli("localhost", "root", "sust","corpus");
+// mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+// if ($mysqli->connect_errno) {
+//     printf("Connect failed: %s\n", $mysqli->connect_error);
+//     exit();
+// }
+
+
+//     $files = glob('G:\category\art/*.txt');
+// 	while(list($i, $filename) = each($files)){
+//    // echo "$filename size " . filesize($filename) . "\n";
+// 	   $contents = file_get_contents($filename);
+
+// 	    // filter  data 
+// 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+// 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+// 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); // remove any character excluding bangla 
+// 		// insert
+// 	        $sql = "INSERT INTO art (text, contributor) VALUES ('$contents',  'RatulCorpus')";
+// 		if ($mysqli->query($sql)  === TRUE) {
+
+// 		} else {
+// 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+// 		}
+// 	}
+
+// 	$mysqli->close();
+
+	
+// 	// return App\RawData::all();
+// 	$time_end = microtime(true);
+// 	//dividing with 60 will give the execution time in minutes other wise seconds
+// 	$execution_time = ($time_end - $time_start)/60;
+// 	echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+// });

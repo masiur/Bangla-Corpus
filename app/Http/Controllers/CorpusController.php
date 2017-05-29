@@ -78,9 +78,9 @@ class CorpusController extends Controller
                     ->with('result' , $result);
     }
 
-    protected function filterRawString($corpusText)
+    public function filterRawString($corpusText)
     {
-        $analyzableString = str_replace('।', '', $corpusText); // dremoving bangla full stop (daRi ) from the string
+        $analyzableString = str_replace('।', '', $corpusText); // removing bangla full stop (daRi ) from the string
         $analyzableString = str_replace(',', '', $analyzableString); // removing all commas
         $analyzableString = preg_replace('/(০|১|২|৩|৪|৫|৬|৭|৮|৯)/', '', $analyzableString); // remove bangla numeric value
         $analyzableString = preg_replace('/\s\s+/', ' ', $analyzableString); // remove more than one whitespace
