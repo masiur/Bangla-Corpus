@@ -40,7 +40,7 @@
                                             <tr><td>
                                             <input id="selected" type="checkbox" name="selected[]" value="{{ $corpus->id }}"></td>
                                                 <td><?php echo $counter++; ?></td>
-                                                <td>{!! $corpus->category !!}</td>
+                                                <td>Opinion</td>
                                                 <td>{!! $corpus->text !!}</td>
                                                 <td><a class="btn btn-info btn-xs btn-archive Showbtn" href="{!!route('corpus.analysis',$corpus->id)!!}"  style="margin-right: 3px;">Details</a></td>
                                                 <!-- <td><a class="btn btn-success btn-xs btn-archive Editbtn" href="{!!route('corpus.edit',$corpus->id)!!}"  style="margin-right: 3px;">Edit</a></td>

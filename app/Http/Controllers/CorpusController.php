@@ -22,7 +22,7 @@ class CorpusController extends Controller
     {
         return view('admin.corpus.index')
                     ->with('title', 'Corpora Collections')
-                    ->with('corpuses' , Corpus::all());
+                    ->with('corpuses' , Corpus::take(100)->get());
     }
 
      public function analysis($id)
