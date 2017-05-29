@@ -19,7 +19,7 @@ Route::get('/admin', function () {
 });
 Route::get('/', ['as'=>'index','uses' => 'FrontendController@index']);
 Route::get('home', ['as'=>'home','uses' => 'FrontendController@home']);
-Route::get('about', ['as'=>'about','uses' => 'FrontendController@about']);
+// Route::get('about', ['as'=>'about','uses' => 'FrontendController@about']);
 
 Route::group(['middleware' => 'guest'], function(){
 
@@ -98,7 +98,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('contribute/{id}',['as' => 'contribute.delete', 'uses' => 'CategoryController@destroy']);
 
 
-	Route::get('about',['as' => 'about.index', 'uses' => 'FrontendController@about']);
+	Route::get('about',['as' => 'about', 'uses' => 'FrontendController@about']);
 	Route::get('contact',['as' => 'contact.index', 'uses' => 'FrontendController@contact']);
 /* this is only for developer 
 // strongly recommend not to use on production
