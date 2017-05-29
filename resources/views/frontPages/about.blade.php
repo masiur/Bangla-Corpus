@@ -4,7 +4,7 @@
         
 		<div class="container">
 		 <br><br>
-		 <h1>About people</h1>
+		 <h1 style="color: #505050; border-left: 6px solid #a63a3a; padding-left: 8px;">About people</h1>
 
 		 <h2 style="text-align: left; color: #804040; font-size: 16px; ">Project Manager</h2>
 		 	<p>
