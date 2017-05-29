@@ -24,16 +24,19 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="">Home</a>
+              <a href="{{ route('home') }}">Home</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="{{ route('about.index') }}">About</a>
             </li>
             <li>
               <a href="">Data</a>
             </li>
             <li>
               <a href="">Contribute</a>
+            </li>
+            <li>
+              <a href="{{ route('contact.index') }}">Contact</a>
             </li>
           </ul>
 

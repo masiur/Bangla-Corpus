@@ -33,6 +33,16 @@ class FrontendController extends Controller
                     ->with('categories', $categories);
     }
 
+    public function about()
+    {
+        return view('frontPages.about')->with('title','Home');
+    }
+
+    public function contact()
+    {
+        return view('frontPages.contact')->with('title','Home');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
