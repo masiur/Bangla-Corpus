@@ -17,11 +17,7 @@ class FrontendController extends Controller
     public function index()
     {
         $categories[''] = 'Please, Select a Category';
-        $categories = Category::lists('name', 'id');
-        // $categories = array($categories);
-        // $categories = array_merge(['' => 'Please, Select a Category'], $categories);
-        // $categories[''] = 'Please, Select a Category';
-        // return $categories;     
+        $categories = Category::lists('name', 'id');    
         return view('frontPages.index')->with('title', 'Home')
                     ->with('categories', $categories);
     }
@@ -43,22 +39,23 @@ class FrontendController extends Controller
         return view('frontPages.contact')->with('title','Home');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function contributeIndex()
     {
         return view('frontPages.contribute')->with('title', 'Contribute');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function corpusDataEntryForm()
+    {
+        $categories[''] = 'Please, Select a Category';
+        $categories = Category::lists('name', 'id');
+        // $categories = array($categories);
+        // $categories = array_merge(['' => 'Please, Select a Category'], $categories);
+        // $categories[''] = 'Please, Select a Category';
+        // return $categories;     
+        return view('frontPages.corpusDataEntryForm')->with('title', 'Contribute text')
+                    ->with('categories', $categories);
+    }
+   
     public function store(Request $request)
     {
         //
