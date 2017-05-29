@@ -23,20 +23,17 @@
           </ul> -->
 
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="{{ route('home') }}">Home</a>
+            <li class="{{ Menu::isActiveRoute('index') }}">
+              <a href="{{ route('index') }}">Home</a>
             </li>
-            <li>
-              <a href="{{ route('about.index') }}">About</a>
+            <li class="{{ Menu::isActiveRoute('about') }}">
+              <a href="{{ route('about') }}">About</a>
             </li>
-            <li>
+            <li class="{{ Menu::isActiveRoute('') }}">
               <a href="">Data</a>
             </li>
-            <li>
-              <a href="">Contribute</a>
-            </li>
-            <li>
-              <a href="{{ route('contact.index') }}">Contact</a>
+            <li class="{{ Menu::isActiveRoute('contribute.index') }}">
+              <a href="{{ route('contribute.index') }}">Contribute</a>
             </li>
           </ul>
 
