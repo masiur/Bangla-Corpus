@@ -9,6 +9,7 @@
 	        	<div class="row">
 	        		<div class="col-md-4">
 	        			<ul>
+	        				<li><a data-toggle="tab" href="#contribute">Contribute Now</a></li>
 	        				<li><a data-toggle="tab" href="#criteria">Criteria</a></li>
 	        				<li><a data-toggle="tab" href="#copyright">Copyright Issues</a></li>
 	        				<li><a data-toggle="tab" href="#format">Format</a></li>
@@ -18,7 +19,14 @@
 	        		</div>
 	        		<div class="col-md-8">
 	        			<div class="tab-content">
-	        				<div id="criteria" class="tab-pane fade in active">
+
+	        				<div id="contribute" class="tab-pane fade in active">
+		        				<h4>Contribute Text Now</h4>
+		        				<p>The NLP Lab invites contributions of language data, including published and unpublished written and spoken (i.e., transcriptions) documents of all genres, including fiction, non-fiction, poetry, newspapers, magazines, journals, pamphlets, diaries etc., as well as web-based language data such as blogs, web pages, tweets, email, etc. and other less common genres such as rap lyrics.</p>
+								<a class="btn btn-success" href="{{ route('contribute.text') }}">Proceed</a>	
+							</div>
+
+	        				<div id="criteria" class="tab-pane fade in">
 		        				<h4>Criteria</h4>
 								<p>The American National Corpus includes written and spoken (i.e., transcriptions) materials that fulfill the following requirements:</p>
 								<ul>
