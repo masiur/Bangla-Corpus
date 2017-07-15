@@ -23,7 +23,7 @@
 	        				<div id="contribute" class="tab-pane fade in active">
 		        				<h4>Contribute Text Now</h4>
 		        				<p>The NLP Lab invites contributions of language data, including published and unpublished written and spoken (i.e., transcriptions) documents of all genres, including fiction, non-fiction, poetry, newspapers, magazines, journals, pamphlets, diaries etc., as well as web-based language data such as blogs, web pages, tweets, email, etc. and other less common genres such as rap lyrics.</p>
-								<a class="btn btn-success" href="{{ route('contribute.text') }}">Proceed</a>	
+								<a class="btn btn-success" href="{{ route('contribute.info') }}">Proceed</a>	
 							</div>
 
 	        				<div id="criteria" class="tab-pane fade in">

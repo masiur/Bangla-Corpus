@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {!! Html::style('css/bootstrap.css') !!}
     {!! Html::style('css/custom.min.css') !!}
-
+    @yield('style')
     <style type="text/css">
       .footer-mas {
         position: fixed;
