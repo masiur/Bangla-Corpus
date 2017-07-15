@@ -70,6 +70,7 @@ class UserController extends Controller
             $user->password = Hash::make(1234);
 
             if($user->save()){
+                Auth::login($user);
                 return redirect()->route('contribute.text')
                             ->with('success','Registered successfully. Now You can always login with password 1234');
             }else{

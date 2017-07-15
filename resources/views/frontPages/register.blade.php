@@ -50,7 +50,7 @@
                                     <div class="form-group">
                                         {!! Form::label('bio', "Your Info", array('class' => 'control-label col-lg-2')) !!}
                                         <div class="col-lg-6">
-                                            {!! Form::email('bio', null, array('class' => 'form-control', 'placeholder' => 'eg. Data Engineering, SUST, Sylhet.')) !!}
+                                            {!! Form::text('bio', null, array('class' => 'form-control', 'placeholder' => 'eg. Data Engineering, SUST, Sylhet.')) !!}
                                         </div>
                                     </div>
 

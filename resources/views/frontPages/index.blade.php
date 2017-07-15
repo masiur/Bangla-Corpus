@@ -1,8 +1,9 @@
 @extends('layouts.frontend')
     @section('content')
-        @include('includes.alert')
+        
 
       	<div class="container">
+        @include('includes.alert')
         	<br><br>
         	<h1 style="color: #505050; border-left: 6px solid #a63a3a; padding-left: 8px;">The Open Bangla Corpus</h1>
         	<br>
