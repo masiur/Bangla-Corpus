@@ -154,7 +154,7 @@ class CategoryController extends Controller
     $time_start = microtime(true); 
    //mysqli_set_charset($dblink, "utf8"); 
 
-   $mysqli = new \mysqli("localhost", "root", "","corpus");
+   $mysqli = new \mysqli("localhost", env('DB_USERNAME', 'root'), env('DB_PASSWORD', '') ,env('DB_DATABASE', 'forge'));
    mysqli_set_charset($mysqli, "utf8");    
 // /* check connection */
    if ($mysqli->connect_errno) {
