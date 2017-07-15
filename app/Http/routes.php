@@ -102,6 +102,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
 
 
+Route::get('contribute',['as' => 'contribute.index', 'uses' => 'FrontendController@contributeIndex']);
+	Route::get('contribute/text',['as' => 'contribute.text', 'uses' => 'FrontendController@corpusDataEntryForm']);
+	Route::get('contribute/info',['as' => 'contribute.info', 'uses' => 'UserController@createUserData']);
+	Route::post('contribute/info/store',['as' => 'contribute.store.info', 'uses' => 'UserController@storeUserData']);
+	Route::get('corpus/create',['as' => 'corpus.create', 'uses' => 'CorpusController@create']);
+	Route::post('corpus',['as' => 'corpus.store', 'uses' => 'CorpusController@store']);
+	Route::get('corpus/{id}/edit',['as' => 'corpus.edit', 'uses' => 'CorpusController@edit']);
+	Route::get('corpus/{id}/show',['as' => 'corpus.show', 'uses' => 'CorpusController@show']);
+	Route::put('corpus/{id}',['as' => 'corpus.update', 'uses' => 'CorpusController@update']);
+	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
+
 
 
 	// Route::get('contribute/{id}/edit',['as' => 'contribute.edit', 'uses' => 'CategoryController@edit']);
