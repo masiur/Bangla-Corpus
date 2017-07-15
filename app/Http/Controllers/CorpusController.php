@@ -123,16 +123,26 @@ class CorpusController extends Controller
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
-        
         $categoryName = Category::where('id', $data['category_id'])->pluck('name');
+
+        $target = new \App\TargetTable();
+        // $tableName = null;
+        $target->setTable($categoryName);
+       
+        
+        
         $corpus = new Corpus();
-        // Corpus::tableName($categoryName);
+        // Category::tableName($$data['category_id']);
         $corpus->category = $categoryName;
         $corpus->text = $data['corpusdata'];
         if($corpus->save()) {
             $user = Auth::user();
             $user->points = $user->points + 10;
             $user->save();
+
+            $target->text = $data['corpusdata'];
+            $target->contributor = auth()->user()->name;
+            $target->save();
 
             return redirect()->route('contribute.text')->with('success','Text  Added Successfully');
         } else {

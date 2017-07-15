@@ -27,7 +27,8 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>category Name</th>
+                                            <th>Category Name</th>
+                                            <th>Download</th>
                                             <th>#</th>
                                             <th>#</th>
                                         </tr>
@@ -37,6 +38,7 @@
                                             <tr>
                                                 <td>{!! $category->id !!}</td>
                                                 <td>{!! $category->name !!}</td>
+                                                <td><a target="_blank" class="btn btn-sm btn-success" href="{{ route('download', ['name' => $category->name]) }}">Download</a></td>
                                                 <!-- <td><a class="btn btn-info btn-xs btn-archive Showbtn" href="{!!route('category.show',$category->id)!!}"  style="margin-right: 3px;">Show Details</a></td> -->
                                                 <td><a class="btn btn-success btn-xs btn-archive Editbtn" href="{!!route('category.edit',$category->id)!!}"  style="margin-right: 3px;">Edit</a></td>
                                                 <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $category->id!!}">Delete</a></td>

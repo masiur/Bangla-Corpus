@@ -2,9 +2,10 @@
     @section('content')
       	<div class="wraper container-fluid">
         <br>
-        @include('includes.alert')
+        
         
         <div class="col-sm-9 col-md-9 col-lg-9 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
+        @include('includes.alert')
             <div class="row">
                 <!-- <div class="panel panel-default"> -->
 

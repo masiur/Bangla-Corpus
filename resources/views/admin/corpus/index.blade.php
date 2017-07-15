@@ -35,10 +35,10 @@
                                         </thead>
                                         <tbody>
                                         <?php $counter=1 ?>
-                                        <form method="post" action="">
+                                        <!-- <form method="post" action=""> -->
                                         @foreach ($corpuses as $corpus)
                                             <tr><td>
-                                            <input id="selected" type="checkbox" name="selected[]" value="{{ $corpus->id }}"></td>
+                                            <!-- <input id="selected" type="checkbox" name="selected[]" value="{{ $corpus->id }}"></td> -->
                                                 <td><?php echo $counter++; ?></td>
                                                 <td>Opinion</td>
                                                 <td>{!! $corpus->text !!}</td>
@@ -51,8 +51,8 @@
                                         
                                         </tbody>
                                     </table>
-                                    <button type="submit" class="analysisSubmit btn btn-info">Go</button>
-                                    </form>
+                                    <!-- <button type="submit" class="analysisSubmit btn btn-info">Go</button>
+                                    </form> -->
                                 @else
                                     No corpus added yet. Be first to add a corpus
                                 @endif
