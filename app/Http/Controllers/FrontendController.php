@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
+use App\User;
 class FrontendController extends Controller
 {
     /**
@@ -34,6 +35,13 @@ class FrontendController extends Controller
         return view('frontPages.about')->with('title','Home');
     }
 
+     public function leaderboard()
+    {
+        $users = User::orderby('points', 'desc')->get();
+        return view('frontPages.leaderboard')
+                    ->with('title','Leaderboard')
+                    ->with('users', $users);
+    }
     public function contact()
     {
         return view('frontPages.contact')->with('title','Home');

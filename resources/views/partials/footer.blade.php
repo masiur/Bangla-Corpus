@@ -4,8 +4,17 @@
 	</div>
 </center>
 
+<!-- Developers
+Masiur Rahman Siddiki
+mrsiddiki AT gmail DOT com
+CSE'12,SUST
+&&
+Abdullah Al Awal
+abdullahalawal177 AT gmail DOT com
+CSE'12,SUST -->
 
 {!! Html::script('css/jquery-1.10.2.min.js') !!}
     {!! Html::script('css/bootstrap.min.js') !!}
   {!! Html::script('css/custom.js') !!}
   
+  @yield('script')

@@ -27,10 +27,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createUserData()
     {
-        return view('auth.register')
-                    ->with('title', 'Register');
+        if(auth()->check()){
+            return redirect()->route('contribute.text');
+        }
+        return view('frontPages.register')
+                    ->with('title', 'Contributor Informaton');
     }
 
     /**
@@ -39,32 +42,38 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeUserData(Request $request)
     {
-        $rules =[
-            'username'                  => 'required',
-            'email'                 => 'required|unique:users,email',
-            'password'              => 'required|confirmed',
-            'password_confirmation' => 'required'
-        ];
-        $data = $request->all();
+        if($request->has('anonymous')) {
+            $user = User::where('username', 'anonymous')->first();
+            Auth::login($user);
 
-        $validation = Validator::make($data,$rules);
+            return redirect()->route('contribute.text')
+                            ->with('info','Anonymously logged in.');
+ 
+        } else {
+            $rules =[
+                'name'                  => 'required',
+                'email'                 => 'required|unique:users,email',
+            ];
+            $data = $request->all();
 
-        if($validation->fails()){
-            return redirect()->back()->withErrors($validation)->withInput();
-        }else{
+            $validation = Validator::make($data,$rules);
+
+            if($validation->fails()){
+                return redirect()->back()->withErrors($validation)->withInput();
+            }
+
             $user = new User;
-            $user->username = $data['username'];
+            $user->name = $data['name'];
             $user->email = $data['email'];
-            $user->password = Hash::make($data['password']);
+            $user->password = Hash::make(1234);
 
             if($user->save()){
-                Auth::logout();
-                return redirect()->route('login')
-                            ->with('success','Registered successfully. Sign In Now.');
+                return redirect()->route('contribute.text')
+                            ->with('success','Registered successfully. Now You can always login with password 1234');
             }else{
-                return redirect()->route('dashboard')
+                return redirect()->back()
                             ->with('error',"Something went wrong.Please Try again.");
             }
         }

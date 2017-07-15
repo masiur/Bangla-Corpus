@@ -50,6 +50,18 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
+	// Category CRUD
+	Route::get('contribute',['as' => 'contribute.index', 'uses' => 'FrontendController@contributeIndex']);
+	Route::get('contribute/text',['as' => 'contribute.text', 'uses' => 'FrontendController@corpusDataEntryForm']);
+	Route::get('contribute/info',['as' => 'contribute.info', 'uses' => 'UserController@createUserData']);
+	Route::post('contribute/info/store',['as' => 'contribute.store.info', 'uses' => 'UserController@storeUserData']);
+	Route::get('corpus/create',['as' => 'corpus.create', 'uses' => 'CorpusController@create']);
+	Route::post('corpus',['as' => 'corpus.store', 'uses' => 'CorpusController@store']);
+	Route::get('corpus/{id}/edit',['as' => 'corpus.edit', 'uses' => 'CorpusController@edit']);
+	Route::get('corpus/{id}/show',['as' => 'corpus.show', 'uses' => 'CorpusController@show']);
+	Route::put('corpus/{id}',['as' => 'corpus.update', 'uses' => 'CorpusController@update']);
+	Route::delete('corpus/{id}',['as' => 'corpus.delete', 'uses' => 'CorpusController@destroy']);
+
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function()
@@ -88,15 +100,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
 
 
-	// Category CRUD
-	Route::get('contribute',['as' => 'contribute.index', 'uses' => 'FrontendController@contributeIndex']);
-	Route::get('contribute/text',['as' => 'contribute.text', 'uses' => 'FrontendController@corpusDataEntryForm']);
-	// Route::post('contribute',['as' => 'contribute.store', 'uses' => 'CategoryController@store']);
+
 	// Route::get('contribute/{id}/edit',['as' => 'contribute.edit', 'uses' => 'CategoryController@edit']);
 	// Route::get('contribute/{id}/show',['as' => 'contribute.show', 'uses' => 'CategoryController@show']);
 
 
-
+	Route::get('leaderboard',['as' => 'leaderboard', 'uses' => 'FrontendController@leaderboard']);
 	Route::get('about',['as' => 'about', 'uses' => 'FrontendController@about']);
 	Route::get('contact',['as' => 'contact.index', 'uses' => 'FrontendController@contact']);
 //Download section

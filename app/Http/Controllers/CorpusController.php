@@ -11,6 +11,7 @@ use Input;
 use App\Corpus;
 use App\Category;
 use Response;
+use Auth;
 class CorpusController extends Controller
 {
     /**
@@ -121,14 +122,21 @@ class CorpusController extends Controller
         if ($validation->fails()) {
             return redirect()->back()->withInput()->withErrors($validation);
         }
+
+        
         $categoryName = Category::where('id', $data['category_id'])->pluck('name');
         $corpus = new Corpus();
+        // Corpus::tableName($categoryName);
         $corpus->category = $categoryName;
         $corpus->text = $data['corpusdata'];
         if($corpus->save()) {
-            return redirect()->route('index')->with('success','Text  Added Successfully');
+            $user = Auth::user();
+            $user->points = $user->points + 10;
+            $user->save();
+
+            return redirect()->route('contribute.text')->with('success','Text  Added Successfully');
         } else {
-            return redirect()->route('index')->with('error','Something went wrong');
+            return redirect()->route('contribute.text')->with('error','Something went wrong');
         }
     }
 

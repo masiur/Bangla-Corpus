@@ -116,12 +116,12 @@ class AuthController extends Controller
                 if ($throttles) {
                     $this->clearLoginAttempts($request);
                 }
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('/');
             } else if(Auth::attempt([ 'username' => $allInput['email'], 'password' => $allInput['password'] ])) {
                 if ($throttles) {
                     $this->clearLoginAttempts($request);
                 }
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('/');
             } else
             {   
                 if ($throttles) {
@@ -137,7 +137,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login')
+        return redirect()->route('home')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }

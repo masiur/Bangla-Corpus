@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
     @section('content')
-        @include('includes.alert')
       	<div class="wraper container-fluid">
+        <br>
         @include('includes.alert')
         
         <div class="col-sm-9 col-md-9 col-lg-9 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
