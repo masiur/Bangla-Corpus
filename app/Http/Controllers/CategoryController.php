@@ -71,7 +71,14 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+        /*
+        $category = Category::findOrFail($id);
+        return view('admin.category.edit')
+                        ->with('title', 'Edit Categories')
+                        ->with('category', $category);
+    */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -109,7 +116,7 @@ class CategoryController extends Controller
 
         $category = Category::findOrFail($id);
         $category->name = $data['name'];
-        if($category->save()) {
+        if($category->save()){
             return redirect()->route('category.index')->with('success','Category Successfully Updated');
         } else {
             return redirect()->route('category.index')->with('error','Something went wrong');

@@ -99,6 +99,74 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
 	Route::get('about',['as' => 'about', 'uses' => 'FrontendController@about']);
 	Route::get('contact',['as' => 'contact.index', 'uses' => 'FrontendController@contact']);
+//Download section
+	Route::get('download', function(){
+
+	});
+//-------------------
+	 Route::get('download', function () {
+
+ 	set_time_limit(0);
+ 	ini_set('memory_limit', '-1');
+ 	$time_start = microtime(true); 
+   //mysqli_set_charset($dblink, "utf8"); 
+
+   $mysqli = new mysqli("localhost", "root", "","corpus");
+   mysqli_set_charset($mysqli, "utf8");    
+// /* check connection */
+   if ($mysqli->connect_errno) {
+       printf("Connect failed: %s\n", $mysqli->connect_error);
+       exit();
+   }
+
+/*
+     $files = glob('G:\category\education/*.txt');
+ 	while(list($i, $filename) = each($files)){
+    // echo "$filename size " . filesize($filename) . "\n";
+ 	   $contents = file_get_contents($filename);
+
+ 	    // filter  data 
+ 	    $analyzableString = preg_replace('/\s\s+/', ' ', $contents); // remove more than one whitespace
+
+ 	        $analyzableString = preg_replace("/[A-Za-z0-9@#$^&*.]/u", "", $analyzableString);
+ 	        $analyzableString = preg_replace("/[^\s\x{0980}-\x{09FB}]+/u", "", $analyzableString); //
+*/ 	         
+ 	    //$sql = "INSERT INTO education (text, contributor) VALUES ('$contents', 'RatulCorpus')";
+ 	    $sql = "SELECT id,text,contributor from sports";
+ 	    $result_set = mysqli_query($mysqli,$sql);
+ 	    $i=0;
+ 	    $zip = new ZipArchive();
+ 	    $zipname = "sports.zip";
+ 	    $zip->open($zipname, ZipArchive::CREATE);
+ 	    while($res = mysqli_fetch_assoc($result_set)){
+            //echo $res['id'].$res['text'].$res['contributor'];
+            //echo "\n";
+            $i=$i+1;
+            $path="sports/sports".(string)$i.".txt";
+            $myfile = fopen($path, "a") or die("Unable to open file!");
+            //$myfile = fopen("sports/sports".(string)$i.".txt", "x") or die("Unable to open file!");
+            $zip->addFile($path);
+			fwrite($myfile,$res['text']);
+			fclose($myfile);
+        }
+        $zip->close(); 
+        /* 
+ 		if ($mysqli->query($sql)  === TRUE) {
+
+ 		} else {
+ 	    	echo "Error: " .$sql. "<br>" . $mysqli->error;
+ 		}
+ 		*/
+ 	$mysqli->close();
+
+ 	$time_end = microtime(true);
+ 	//dividing with 60 will give the execution time in minutes other wise seconds
+ 	$execution_time = ($time_end - $time_start)/60;
+ 	//echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
+	
+ });
+	//------------------
+
 /* this is only for developer 
 // strongly recommend not to use on production
 */
